@@ -30,14 +30,14 @@ create table livro(
 );
 
 create table autorLivro(
-    autor not null references autor(id),
-    livro not null references livro(isbn),
+    autor int references autor(id),
+    livro int references livro(isbn),
     primary key (autor, livro)
 );
 
 create table generoLivro(
-    genero not null references genero(id),
-    livro not null references livro(id),
+    genero int references genero(id),
+    livro int references livro(isbn),
     primary key (genero, livro)
 );
 
