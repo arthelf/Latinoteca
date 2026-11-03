@@ -1,1 +1,3 @@
-# cacoiloBancoTca
+Latinoteca
+
+Um acervo de empréstimo online de livros latino-americanos. O projeto busca não só preservar, mas também mostrar o quão importante é a cultura da literatura do nosso continente.
