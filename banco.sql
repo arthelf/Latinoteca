@@ -29,15 +29,15 @@ create table livro(
     editora int not null references editora(id)
 );
 
-create table autorLivro(
-    autor int references autor(id),
-    livro int references livro(isbn),
+create table autor_livro(
+    autor int not null references autor(id),
+    livro int not null references livro(isbn),
     primary key (autor, livro)
 );
 
-create table generoLivro(
-    genero int references genero(id),
-    livro int references livro(isbn),
+create table genero_livro(
+    genero int not null references genero(id),
+    livro int not null references livro(isbn),
     primary key (genero, livro)
 );
 
