@@ -1,33 +1,32 @@
-drop database if exists latinoteca;
-create database latinoteca;
-\c latinoteca
+--drop database if exists latinoteca;
+--create database latinoteca;
+--\c latinoteca
 
 
 --tabelas
-
 create table autor(
     id serial primary key,
-    nome varchar(50) not null,
-    nacionalidade varchar(50) not null,
-    sobre varchar(50) not null
+    nome varchar(200) not null,
+    nacionalidade varchar(200) not null,
+    sobre text not null
 );
 
 create table genero(
     id serial primary key,
-    nome varchar(50) not null
+    nome varchar(200) not null
 );
 
 create table editora(
     id serial primary key,
-    nome varchar(50) not null
+    nome varchar(200) not null
 );
 
 create table livro(
-    isbn serial primary key,
-    titulo varchar(50) not null,
-    descricao text(50) not null,
+    isbn char(13) primary key,
+    titulo varchar(200) not null,
+    descricao text not null,
     ano int not null,
-    editora_livro varchar(50) not null references editora(id)
+    editora int not null references editora(id)
 );
 
 create table autorLivro(
@@ -44,9 +43,9 @@ create table generoLivro(
 
 create table usuario(
     cpf char(11) primary key,
-    nome varchar(50) not null,
+    nome varchar(200) not null,
     nascimento date not null check (nascimento < current_date),
-    genero char(1) not null default 'N' check (genero in ('N', 'M', 'F '))
+    genero char(1) not null default 'N' check (genero in ('N', 'M', 'F'))
 );
 
 create table exemplar(
@@ -61,8 +60,3 @@ create table emprestimo(
     exemplar int not null references exemplar(codigo),
     cpf_usuario char(11) not null references usuario(cpf)
 );
-
-
-
-
-
