@@ -2,6 +2,7 @@ drop database if exists latinoteca;
 create database latinoteca;
 \c latinoteca
 
+
 --tabelas
 
 create table autor(
