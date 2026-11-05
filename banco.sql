@@ -49,10 +49,16 @@ create table usuario(
     genero char(1) not null default 'N' check (genero in ('N', 'M', 'F '))
 );
 
+create table exemplar(
+    codigo serial primary key,
+    livro char(13) not null references livro(isbn)
+);
+
 create table emprestimo(
     codigo serial primary key,
     data_emprestimo date not null default(current_date) check (data_emprestimo <= current_date),
     data_devolucao date not null check (data_emprestimo < data_devolucao),
+    exemplar int not null references exemplar(codigo),
     cpf_usuario char(11) not null references usuario(cpf)
 );
 
