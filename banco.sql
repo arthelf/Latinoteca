@@ -31,13 +31,13 @@ create table livro(
 
 create table autor_livro(
     autor int not null references autor(id),
-    livro int not null references livro(isbn),
+    livro char(13) not null references livro(isbn),
     primary key (autor, livro)
 );
 
 create table genero_livro(
     genero int not null references genero(id),
-    livro int not null references livro(isbn),
+    livro char(13) not null references livro(isbn),
     primary key (genero, livro)
 );
 
