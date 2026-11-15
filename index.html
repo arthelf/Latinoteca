@@ -3,9 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="module" src="js/main.js"></script>
     <title>Latinoteca</title>
 </head>
 <body>
+    <!-- é pra ficar pequenininho lá em cima-->
+    <header>
+        <img src="img/logo.svg" width="200" height="300" alt="lationoteca_logo" class="logo">
+        <h3>Latinoteca</h3>
+    </header>
+    <!---->
+
+    <nav>
+        <a href="acervo.html">Acervo</a>
+        <a href="#sobre">Sobre</a>
+    </nav>
     
+
+    <main>
+        <section>
+            <div class="face">
+                <img src="img/logo.svg" width="200" height="300" alt="Logo da Latinoteca">
+                <h1>Latinoteca</h1>
+                <p>Histórias do nosso continente, a cliques de distância.</p>
+            </div>
+
+            <section class="box_login">
+                <h3>Entrar</h3>
+                <form id="login">
+                    <label for="email_login">E-mail</label>
+                    <input type="email" id="email_login" required>
+                    <label for="senha_login">Senha</label>
+                    <input type="password" id="senha_login" required>
+                    <button type="submit">Entrar</button>
+                </form>
+
+                <h3>Criar conta</h3>
+                <form id="cadastro">
+                    <label for="nome_cadastro">Nome</label>
+                    <input type="text" id="nome_cadastro" required>
+                    <label for="email_cadastro">E-mail</label>
+                    <input type="email" id="email_cadastro" required>
+                    <label for="senha_cadastro">Senha</label>
+                    <input type="password" id="senha_cadastro" minlength="6" required>
+                    <button type="submit">Criar conta</button>
+                </form>
+            </section>
+
+        </section>
+
+        <section id="sobre">
+            <h2>O que é a Latinoteca?</h2>
+            <p>
+                A Latinoteca é um acervo online de empréstimo de livros latino-americanos.
+                Nosso objetivo é preservar a literatura do continente e mostrar o quanto ela é importante.
+            </p>
+            <p>
+                Aqui você pode navegar pelo acervo conhecendo cada obra e podendo pegar exemplares emprestados.
+                Pesquise por título, autor, gênero ou editora, ou se preferir pode pesquisar pelos mais aclamados e mais bem avaliados, a escolha é sua.
+            </p>
+        </section>
+    </main>
 </body>
 </html>

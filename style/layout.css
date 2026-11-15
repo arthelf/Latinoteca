@@ -1,0 +1,72 @@
+/* Define o layout da página, a estrutura principal
+Também define header, nav, main, footer, etc 
+Este arquivo normalmente é único/específico de um projeto 
+e não é reutilizado (Exceto em sites com estrutura semelhante) */
+
+/* Topo fixado com sticky */
+.fixed {
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+}          
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--background-color);
+    padding: 0px 5px ;
+    border-radius: var(--radius);
+    border: var(--border-width) solid var(--highlight-color);
+}
+header .logo{
+    width: 2.5rem;   /*Tamanho em rem para acompanhar o tamanho da fonte */
+    height: auto;
+    border-radius: var(--radius);
+}
+header h1{
+    text-align: center;
+} 
+header button{
+    background: none;
+    border: none;
+    color: var(--highlight-color);
+    cursor: pointer;
+    font-size: 1.7rem; 
+}  
+
+nav {
+    display:none;
+    border: var(--border-width) solid var(--highlight-color);
+    background-color: var(--background-color);
+    border-radius: var(--radius);
+    padding: 40px;
+    list-style-type: none;
+}
+nav.ativo {
+    display: block;
+}
+nav a {
+    display:block;
+    color: var(--letter-color);
+    max-width: 500px;
+    margin: 0px auto;
+    border:var(--border-width) outset var(--highlight-color);
+    border-radius: var(--radius);
+    padding: 5px 10px;
+    text-decoration: none;  
+    text-align: center;
+    
+} 
+nav a:hover {
+    color: var(--highlight-color); 
+    border: var(--border-width) inset var(--highlight-color);
+}
+footer {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: var(--radius);
+    border: var(--border-width) solid var(--highlight-color); 
+    background-color: var(--background-color);
+    text-align: center;
+}
