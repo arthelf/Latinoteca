@@ -1,43 +1,29 @@
-/* Este arquivo define os componentes da interface
- * Um componente pode ser reutilizado em vários pontos da página, ou mesmo em outros projetos
- * Exemplos: galeria de imagens, cards, tabelas, botões etc 
+/* Este arquivo define estilos
+compartilhados entre vários componentes.
  */
 
-/* ----Gallery ----
-Galeria de elementos que serão exibidos lado a lado 
-e organizados por um grid */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px; 
-
-    background-color: var(--background-color);
-    padding: 10px;
-    border-radius: var(--radius);
+ /* Classe que define as bordas e fundo de uma box 
+ customizada. 
+ As classes com o prefixo "box-" precisam
+ ser aplicadas junto com a classe .box (são especificações
+ desta box) */
+.box {
     border: var(--border-width) solid var(--highlight-color);
-}
-
-
-/* ----Card----
-Os elementos dentro do card serão exibidos em uma coluna */
-.card {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-
-    padding: 5px;
-    border: var(--border-width) outset var(--highlight-color);
     border-radius: var(--radius);
     background-color: var(--background-color);
-     
+    box-shadow:inset 0px 0px 5px var(--highlight-color);
 }
-.card h3{
-    border-bottom: var(--border-width) solid var(--highlight-color);
-}
-.card p, .card figcaption{
-    text-indent: 2ch;
-}
-.card img{
-    border-radius: var(--radius);
-}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
 

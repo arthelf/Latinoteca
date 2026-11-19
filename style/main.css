@@ -1,16 +1,76 @@
-/* CSS principal - importa/junta os arquivos CSS */
-
-/* Importação de fontes e arquivos CSS usados na página.
-A ordem em que são chamados é importante */
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('modern-normalize.css');
 @import url('variables.css');
 @import url('base.css');
-@import url('layout.css');
 @import url('components.css');
 
-/* Abaixo coloque códigos css usados exclusivamente 
-nesta página(códigos específicos,que não são reutilizados,
- nao tem potencial de reutilização) */
+/* Estilos globais que não estão nos componentes */
 
+/* Página Index */
+.index .hero {
+    display: flex;
+    flex-wrap: wrap;              /* em tela estreita, a caixa desce */
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.index .hero-marca {
+    text-align: center;
+}
+
+.index .hero-marca img {
+    width: 8rem;
+    margin: 0 auto;               /* centraliza (img é display:block no base.css) */
+}
+
+.index .hero-marca h2 {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    color: var(--highlight-color);
+}
+
+.index .acesso {
+    width: 20rem;
+    max-width: 100%;
+    padding: 15px;
+    text-align: center;
+}
+
+.index .acesso a {
+    display: inline-block;
+    padding: 8px 16px;
+    color: #fff;
+    background: var(--highlight-color);
+    border-radius: var(--radius);
+}
+
+.index #sobre {
+    max-width: 60ch;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Página Acervo */
+.acervo main {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.acervo form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.acervo #lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 15px;
+}
+
+.acervo .livro {
+    padding: 10px;
+}
