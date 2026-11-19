@@ -6,7 +6,7 @@
 /* Estilos globais que não estão nos componentes */
 
 /* Página Index */
-.index .hero {
+.index .area_inicial {
     display: flex;
     flex-wrap: wrap;              /* em tela estreita, a caixa desce */
     justify-content: space-around;
@@ -15,16 +15,16 @@
     margin: 30px 0;
 }
 
-.index .hero-marca {
+.index .face {
     text-align: center;
 }
 
-.index .hero-marca img {
+.index .face img {
     width: 8rem;
     margin: 0 auto;               /* centraliza (img é display:block no base.css) */
 }
 
-.index .hero-marca h2 {
+.index .face h2 {
     font-family: var(--font-title);
     font-size: 3.5rem;
     color: var(--highlight-color);

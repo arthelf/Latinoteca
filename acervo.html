@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/acervo.js"></script>
+    <title>Acervo - Latinoteca</title>
+</head>
+<body class="acervo">
+    <my-header></my-header>
+
+    <main>
+        <h2>Acervo</h2>
+
+        <form id="form_pesquisa">
+            <label for="busca">Buscar por título</label>
+            <input type="search" id="busca">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <p id="mensagem"></p>
+
+        <section id="lista"></section>
+    </main>
+
+    <my-footer></my-footer>
+</body>
+</html>
