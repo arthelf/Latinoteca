@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/main.css">
     <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/inicial.js"></script>
     <title>Latinoteca</title>
 </head>
 <body class="index">
@@ -20,27 +21,47 @@
             </div>
 
             <section class="box_login">
-                <h3>Entrar</h3>
-                <form id="login">
-                    <label for="email_login">E-mail</label>
-                    <input type="email" id="email_login" required>
-                    <label for="senha_login">Senha</label>
-                    <input type="password" id="senha_login" required>
-                    <button type="submit">Entrar</button>
-                </form>
+                <!-- painel pra quem não tá logado -->
+                <div id="painel_acesso">
+                    <h3>Entrar</h3>
+                    <form id="form_entrar">
+                        <label for="entrar_cpf">CPF (só números)</label>
+                        <input type="text" id="entrar_cpf" inputmode="numeric" pattern="[0-9]{11}" maxlength="11" title="11 números, sem pontos nem traço" required>
+                        <button type="submit">Entrar</button>
+                    </form>
 
-                <h3>Criar conta</h3>
-                <form id="cadastro">
-                    <label for="nome_cadastro">Nome</label>
-                    <input type="text" id="nome_cadastro" required>
-                    <label for="email_cadastro">E-mail</label>
-                    <input type="email" id="email_cadastro" required>
-                    <label for="senha_cadastro">Senha</label>
-                    <input type="password" id="senha_cadastro" minlength="6" required>
-                    <button type="submit">Criar conta</button>
-                </form>
+                    <h3>Criar conta</h3>
+                    <form id="form_cadastro">
+                        <label for="cadastro_cpf">CPF (só números)</label>
+                        <input type="text" id="cadastro_cpf" inputmode="numeric" pattern="[0-9]{11}" maxlength="11" title="11 números, sem pontos nem traço" required>
+
+                        <label for="cadastro_nome">Nome</label>
+                        <input type="text" id="cadastro_nome" maxlength="200" required>
+
+                        <label for="cadastro_nascimento">Nascimento</label>
+                        <input type="date" id="cadastro_nascimento" required>
+
+                        <label for="cadastro_genero">Gênero</label>
+                        <select id="cadastro_genero">
+                            <option value="N">Prefiro não informar</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                        </select>
+
+                        <button type="submit">Criar conta</button>
+                    </form>
+                </div>
+
+                <!-- painel pra quem tá logado -->
+                <div id="painelBemVindo" hidden>
+                    <h3>Olá, <span id="nomeUsuario"></span>!</h3>
+                    <p>Pesquise livros e descubra a literatura latino-americana.</p>
+                    <a href="acervo.html">Explorar o acervo</a>
+                    <button type="button" id="btnSair">Sair</button>
+                </div>
+
+                <p id="mensagem" role="status"></p>
             </section>
-
         </section>
 
         <section id="sobre">

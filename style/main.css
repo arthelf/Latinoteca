@@ -3,12 +3,9 @@
 @import url('base.css');
 @import url('components.css');
 
-/* Estilos globais que não estão nos componentes */
-
-/* Página Index */
 .index .area_inicial {
     display: flex;
-    flex-wrap: wrap;              /* em tela estreita, a caixa desce */
+    flex-wrap: wrap; 
     justify-content: space-around;
     align-items: center;
     gap: 20px;
@@ -21,7 +18,7 @@
 
 .index .face img {
     width: 8rem;
-    margin: 0 auto;               /* centraliza (img é display:block no base.css) */
+    margin: 0 auto;
 }
 
 .index .face h2 {
@@ -51,7 +48,6 @@
     text-align: center;
 }
 
-/* Página Acervo */
 .acervo main {
     max-width: 60rem;
     margin: 0 auto;
