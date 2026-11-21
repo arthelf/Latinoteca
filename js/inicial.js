@@ -23,6 +23,7 @@ const cadastro_genero = document.querySelector('#cadastro_genero');
  
 const botao_sair = document.querySelector('#btnSair');
  
+//endereço da tabela no API do Supabase
 const endereco_tabelaUsuario = config.url + '/rest/v1/usuario';
  
 
@@ -51,8 +52,8 @@ async function fazer_login(evento) {
     try {
         //é tipo um select cpf, nome where cpf = cpf do cpf do usuário atual na tabela usuario
         const endereco = endereco_tabelaUsuario + '?select=cpf,nome&cpf=eq.' + cpf;
-        const opcoes = { headers: { apikey: config.publishableKey } };
-        const resposta = await fetch(endereco, opcoes);
+        const specs = { headers: { apikey: config.publishableKey } };
+        const resposta = await fetch(endereco, specs);
  
         if (resposta.ok === false) {
             mensagem.textContent = 'Não foi possível entrar (erro ' + resposta.status + ').';

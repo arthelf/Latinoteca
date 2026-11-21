@@ -59,8 +59,8 @@ async function carregar_livros(texto_busca) {
     mensagem.textContent = 'Carregando...';
 
     try {
-        const opcoes = { headers: { apikey: config.publishableKey } };
-        const resposta = await fetch(endereco, opcoes);
+        const specs = { headers: { apikey: config.publishableKey } };
+        const resposta = await fetch(endereco, specs);
 
         if (resposta.ok) {
             const livros = await resposta.json();

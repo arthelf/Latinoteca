@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/cadastrar.js"></script>
+    <title>Latinoteca - cadastrar livros</title>
+</head>
+<body class="arquivar">
+    <my-header></my-header>
+
+    <main>
+        <h2>Cadastrar livro</h2>
+
+        <form id="form_livro">
+            <label for="isbn">ISBN (13 números)</label>
+            <input type="text" id="isbn" inputmode="numeric" pattern="[0-9]{13}" maxlength="13" title="13 números, sem traços" required>
+
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" maxlength="200" required>
+
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" rows="4" required></textarea>
+
+            <label for="ano">Ano de publicação</label>
+            <input type="number" id="ano" min="1" max="2100" required>
+
+            <label for="editora">Editora</label>
+            <select id="editora" required>
+                <option value="">Selecione a editora</option>
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+
+        <p id="mensagem"></p>
+    </main>
+
+    <my-footer></my-footer>
+</body>
+</html>
