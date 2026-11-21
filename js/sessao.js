@@ -14,17 +14,18 @@ localStorage =
 
 const CHAVE = 'latinoteca_usuario';
 
-// devolve {cpf, nome} de quem entrou, ou null se não tiver ninguém
-
+//seta a chave como um um objeto stringificado
 export function salvar_usuario(usuario) {
     localStorage.setItem(CHAVE, JSON.stringify(usuario));
 }
 
+//retorna o usuario em json
 export function get_usuario() {
     const texto = localStorage.getItem(CHAVE);
     return texto ? JSON.parse(texto) : null;
 }
 
+//tira a chave, sai da conta
 export function sair() {
     localStorage.removeItem(CHAVE);
 }

@@ -4,9 +4,9 @@ mostra o painel certo dependendo do user estar logado ou não
 */
 
 import config from './config.js';
-import { getUsuario, salvarUsuario, sair } from './sessao.js';
+import { get_usuario, salvar_usuario, sair } from './sessao.js';
  
-//elementos, muitos
+//elementos, e muitos
 const painel_acesso = document.querySelector('#painel_acesso');
 const painel_oi = document.querySelector('#painel_oi');
 const nome_usuario = document.querySelector('#nome_usuario');
@@ -23,12 +23,12 @@ const cadastro_genero = document.querySelector('#cadastro_genero');
  
 const botao_sair = document.querySelector('#btnSair');
  
-const endereco_usuario = config.url + '/rest/v1/usuario';
+const endereco_tabelaUsuario = config.url + '/rest/v1/usuario';
  
- 
-// se o user tá logado, mostra oi, se não, mostra cadastro
-function atualizarPainel() {
-    const usuario = getUsuario();
+
+//muda o que aparece se tiver logado ou não
+function atualizar_painel() {
+    const usuario = get_usuario();
  
     if (usuario === null) {
         painel_acesso.hidden = false;
@@ -39,31 +39,31 @@ function atualizarPainel() {
         nome_usuario.textContent = usuario.nome;
     }
 }
- 
- 
+
+
 //logar
-async function fazerLogin(evento) {
+async function fazer_login(evento) {
     evento.preventDefault();
- 
+    
     const cpf = entrar_cpf.value.trim();
     mensagem.textContent = 'Verificando...';
- 
+
     try {
-        const endereco = endereco_usuario + '?select=cpf,nome&cpf=eq.' + cpf;
-        const resposta = await fetch(endereco, {
-            headers: { apikey: config.publishableKey }
-        });
+        //é tipo um select cpf, nome where cpf = cpf do cpf do usuário atual na tabela usuario
+        const endereco = endereco_tabelaUsuario + '?select=cpf,nome&cpf=eq.' + cpf;
+        const opcoes = { headers: { apikey: config.publishableKey } };
+        const resposta = await fetch(endereco, opcoes);
  
         if (resposta.ok === false) {
             mensagem.textContent = 'Não foi possível entrar (erro ' + resposta.status + ').';
         } else {
-            const listaDeUsuarios = await resposta.json();
+            const lista_usuarios = await resposta.json();
  
-            if (listaDeUsuarios.length === 0) {
+            if (lista_usuarios.length === 0) {
                 mensagem.textContent = 'CPF não encontrado. Crie uma conta.';
             } else {
-                const usuarioEncontrado = listaDeUsuarios[0];
-                salvarUsuario(usuarioEncontrado);
+                const usuario_encontrado = lista_usuarios[0];
+                salvar_usuario(usuario_encontrado);
                 form_entrar.reset();
                 mensagem.textContent = '';
                 atualizarPainel();
@@ -75,10 +75,10 @@ async function fazerLogin(evento) {
 }
 
 //criar conta 
-async function criarConta(evento) {
+async function criar_conta(evento) {
     evento.preventDefault();
  
-    const novoUsuario = {
+    const novo_usuario = {
         cpf: cadastro_cpf.value.trim(),
         nome: cadastro_nome.value.trim(),
         nascimento: cadastro_nascimento.value,
@@ -87,25 +87,25 @@ async function criarConta(evento) {
     mensagem.textContent = 'Criando conta...';
  
     try {
-        const resposta = await fetch(endereco_usuario, {
+        const resposta = await fetch(endereco_tabelaUsuario, {
             method: 'POST',
             headers: {
                 apikey: config.publishableKey,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(novoUsuario)
+            body: JSON.stringify(novo_usuario)
         });
  
         if (resposta.ok) {
-            salvarUsuario({ cpf: novoUsuario.cpf, nome: novoUsuario.nome });
+            salvar_usuario({ cpf: novo_usuario.cpf, nome: novo_usuario.nome });
             form_cadastro.reset();
             mensagem.textContent = '';
-            atualizarPainel();
+            atualizar_painel();
         } else if (resposta.status === 409) {
             mensagem.textContent = 'Já existe uma conta com esse CPF.';
         } else {
-            const erroDoServidor = await resposta.json();
-            mensagem.textContent = 'Não foi possível criar a conta: ' + erroDoServidor.message;
+            const erro_servidor = await resposta.json();
+            mensagem.textContent = 'Não foi possível criar a conta: ' + erro_servidor.message;
         }
     } catch (erro) {
         mensagem.textContent = 'Não foi possível conectar ao servidor.';
@@ -113,14 +113,14 @@ async function criarConta(evento) {
 }
 
 //sair 
-function fazerLogout() {
+function fazer_logout() {
     sair();
     mensagem.textContent = '';
-    atualizarPainel();
+    atualizar_painel();
 }
  
-form_entrar.addEventListener('submit', fazerLogin);
-form_cadastro.addEventListener('submit', criarConta);
-botao_sair.addEventListener('click', fazerLogout);
+form_entrar.addEventListener('submit', fazer_login);
+form_cadastro.addEventListener('submit', criar_conta);
+botao_sair.addEventListener('click', fazer_logout);
 
-atualizarPainel();
+atualizar_painel();
