@@ -31,22 +31,6 @@ function criar_cartao(livro) {
     return cartao;
 }
 
-//autoexplicativa
-function mostrar_livros(livros) {
-    lista_livros.innerHTML = '';
-
-    if (livros.length === 0) {
-        mensagem.textContent = 'Nenhum livro encontrado.';
-    } else {
-        mensagem.textContent = livros.length + ' livro(s) encontrado(s).';
-
-        for (const livro of livros) {
-            const cartao = criar_cartao(livro);
-            lista_livros.appendChild(cartao);
-        }
-    }
-}
-
 
 //muda os livros que aparecem na busca atual
 async function carregar_livros(texto_busca) {
@@ -67,12 +51,28 @@ async function carregar_livros(texto_busca) {
             mostrar_livros(livros);
         } else {
             lista_livros.innerHTML = '';
-            mensagem.textContent = 'Não foi possível carregar o acervo (erro ' + resposta.status + '). '
-                + 'Confira o config.js e as permissões no Supabase.';
+            mensagem.textContent = 'Não foi possível carregar o acervo (erro ' + resposta.status + ')';
         }
     } catch (erro) {
         lista_livros.innerHTML = '';
-        mensagem.textContent = 'Não foi possível conectar ao Supabase. Confira o config.js e a internet.';
+        mensagem.textContent = 'Não foi possível conectar ao Supabase. Confira a chave do Supabase e a internet.';
+    }
+}
+
+
+//autoexplicativa
+function mostrar_livros(livros) {
+    lista_livros.innerHTML = '';
+
+    if (livros.length === 0) {
+        mensagem.textContent = 'Nenhum livro encontrado.';
+    } else {
+        mensagem.textContent = livros.length + ' livro(s) encontrado(s).';
+
+        for (const livro of livros) {
+            const cartao = criar_cartao(livro);
+            lista_livros.appendChild(cartao);
+        }
     }
 }
 

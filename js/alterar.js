@@ -58,21 +58,6 @@ async function carregar_editoras() {
 }
 
 
-function preparar_edicao(livro) {
-    isbn_atual = livro.isbn;
-
-    texto_isbn.textContent = livro.isbn;
-    campo_titulo.value = livro.titulo;
-    campo_descricao.value = livro.descricao;
-    campo_ano.value = livro.ano;
-    campo_editora.value = livro.editora.id;
-
-    painel_lista.hidden = true;
-    painel_edicao.hidden = false;
-    mensagem.textContent = 'Altere os dados que quiser e clique em Salvar alterações.';
-}
-
-
 function criar_cartao(livro) {
     const cartao = document.createElement('section');
     cartao.className = 'box livro';
@@ -97,17 +82,18 @@ function criar_cartao(livro) {
 }
 
 
-function mostrar_livros(livros) {
-    lista_livros.innerHTML = '';
+function preparar_edicao(livro) {
+    isbn_atual = livro.isbn;
 
-    if (livros.length === 0) {
-        mensagem.textContent = 'Nenhum livro cadastrado.';
-    } else {
-        for (const livro of livros) {
-            const cartao = criar_cartao(livro);
-            lista_livros.appendChild(cartao);
-        }
-    }
+    texto_isbn.textContent = livro.isbn;
+    campo_titulo.value = livro.titulo;
+    campo_descricao.value = livro.descricao;
+    campo_ano.value = livro.ano;
+    campo_editora.value = livro.editora.id;
+
+    painel_lista.hidden = true;
+    painel_edicao.hidden = false;
+    mensagem.textContent = 'Altere os dados que quiser e clique em Salvar alterações.';
 }
 
 
@@ -127,6 +113,20 @@ async function carregar_livros() {
     } catch (erro) {
         lista_livros.innerHTML = '';
         mensagem.textContent = 'Não foi possível conectar ao servidor.';
+    }
+}
+
+
+function mostrar_livros(livros) {
+    lista_livros.innerHTML = '';
+
+    if (livros.length === 0) {
+        mensagem.textContent = 'Nenhum livro cadastrado.';
+    } else {
+        for (const livro of livros) {
+            const cartao = criar_cartao(livro);
+            lista_livros.appendChild(cartao);
+        }
     }
 }
 
