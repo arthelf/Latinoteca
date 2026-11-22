@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/alterar.js"></script>
+    <title>Alterar Livros - Latinoteca</title>
+</head>
+<body class="alterar">
+    <my-header></my-header>
+
+    <main>
+        <h2>Alterar livro</h2>
+
+        <p id="mensagem" role="status">Escolha um livro para alterar.</p>
+
+        <section id="painel_lista">
+            <div id="lista_livros"></div>
+        </section>
+
+        <section id="painel_edicao" hidden>
+            <form id="form_livro">
+                <p>ISBN: <strong id="isbn_livro"></strong> (não pode ser alterado)</p>
+
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" maxlength="200" required>
+
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" rows="4" required></textarea>
+
+                <label for="ano">Ano de publicação</label>
+                <input type="number" id="ano" min="1" max="2100" required>
+
+                <label for="editora">Editora</label>
+                <!-- As opções são adicionadas aqui pelo js/alterar.js -->
+                <select id="editora" required></select>
+
+                <button type="submit">Salvar alterações</button>
+                <button type="button" id="botao_cancelar">Cancelar</button>
+            </form>
+        </section>
+    </main>
+
+    <my-footer></my-footer>
+</body>
+</html>
