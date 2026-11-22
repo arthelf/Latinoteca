@@ -24,3 +24,4 @@ Tecnologias:
 
 - Ler, alterar, cadastrar e deletar informações do banco de dados através da interface de usuário;
 - Salvar os dados inseridos de um usuário logado no localStorage do navegador.
+  
