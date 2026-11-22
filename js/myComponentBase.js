@@ -1,8 +1,8 @@
 //arquivos css pros componentes
 const arquivosCSS = [
-  'css/modern-normalize.css',
-  'css/base.css',
-  'css/components.css'
+  'style/modern-normalize.css',
+  'style/base.css',
+  'style/components.css'
 ];
 
 const folhasDeEstilo = arquivosCSS.map(() => new CSSStyleSheet());

@@ -35,6 +35,10 @@ class MyHeader extends MyComponentBase {
     <nav class="box box-nav">
         <a href="index.html">Principal</a>
         <a href="acervo.html">Acervo</a>
+        <a href="cadastrar.html">Cadastrar</a>
+        <a href="alterar.html">Alterar</a>
+        <a href="delete.html">Excluir</a>
+        <a href="index.html#sobre">Sobre</a>
     </nav>
     `;
   }

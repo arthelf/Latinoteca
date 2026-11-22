@@ -21,7 +21,7 @@ const cadastro_nome = document.querySelector('#cadastro_nome');
 const cadastro_nascimento = document.querySelector('#cadastro_nascimento');
 const cadastro_genero = document.querySelector('#cadastro_genero');
  
-const botao_sair = document.querySelector('#btnSair');
+const botao_sair = document.querySelector('#btn_sair');
  
 //endereço da tabela no API do Supabase
 const endereco_tabelaUsuario = config.url + '/rest/v1/usuario';
@@ -67,7 +67,7 @@ async function fazer_login(evento) {
                 salvar_usuario(usuario_encontrado);
                 form_entrar.reset();
                 mensagem.textContent = '';
-                atualizarPainel();
+                atualizar_painel();
             }
         }
     } catch (erro) {
