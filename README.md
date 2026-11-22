@@ -4,8 +4,9 @@ Um acervo de empréstimo online de livros latino-americanos. O projeto busca nã
 
 ## Sobre o projeto
 
-Latinoteca é um site criado com meios de prática e aprendizado, não um projeto sério e funcional no mundo real. Tanto que nenhuma segurança é realmente prezada nos dados do projeto, por limitação de conteúdo visto no curso.
+Latinoteca é um site criado com intuitos de prática e aprendizado, não um projeto sério e funcional no mundo real. Tanto que nenhuma segurança é realmente prezada nos dados do projeto, por limitação de conteúdo visto no curso.
 A função de back-end é exercida pelo Supabase (PostgreSQL).
+Trabalho institucional das matérias de Banco de Dados e Front-End.
 
 ## Linguagens e tecnologias utilizadas
 
